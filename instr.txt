@@ -1,0 +1,24 @@
+
+------- install vim 8.0
+yum  install  ncurses-devel
+cd /usr/local/src
+wget https://github.com/vim/vim/archive/master.zip
+unzip master.zip
+cd vim-master/src
+./configure
+make 
+sudo make install
+vim
+
+
+
+-----------git templates
+git config --global init.templatedir '~/.git_template'
+
+
+-----------git ignore
+git config --global core.excludesfile ~/.gitignore
+
+----------install ctags
+ yum intall ctags
+ ctags -R --languages=ruby --exclude=.git --exclude=log
