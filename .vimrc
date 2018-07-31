@@ -62,15 +62,15 @@ call plug#end()  " All of your Plugins must be added before the following line
 " colorscheme jellybeans
 " colorscheme neodark
 " colorscheme sialoquent
- colorscheme hybrid
-" colorscheme carbonized-dark
-" let g:carbonized_dark_LineNr = 'off'
+" colorscheme hybrid
+ colorscheme carbonized-dark
+ let g:carbonized_dark_LineNr = 'off'
 " colorscheme office-dark
 " colorscheme seagrey-dark
 "  colorscheme vrunchbang-dark
-  let g:vrunchbang_dark_LineNr = 'off'
+"  let g:vrunchbang_dark_LineNr = 'off'
 
-set background=dark
+"set background=dark
 highlight Normal ctermfg=grey ctermbg=black
 
 set termguicolors
@@ -147,7 +147,7 @@ filetype plugin on
 filetype indent on
 
 " Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
+"set list listchars=tab:\ \ ,trail:·
 
 set linebreak    "Wrap lines at convenient points
 
@@ -156,6 +156,27 @@ set linebreak    "Wrap lines at convenient points
 " Window pane resizing
 nnoremap <silent> <Leader>[ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>] :exe "resize " . (winheight(0) * 2/3)<CR>
+
+"===============Tab Relocation Setting"===================
+noremap <C-X>  :-tabmove<cr>
+noremap <C-C> :+tabmove<cr>
+" move current tab to left/right
+"noremap <Leader><Left>  :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+"noremap <Leader><Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
+" ===== No highlight ===="
+noremap <C-H> :noh <CR>
 
 " ===== Seeing Is Believing =====
 " " Assumes you have a Ruby with SiB available in the PATH
