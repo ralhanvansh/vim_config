@@ -22,3 +22,7 @@ git config --global core.excludesfile ~/.gitignore
 ----------install ctags
  yum intall ctags
  ctags -R --languages=ruby --exclude=.git --exclude=log
+
+Copy .git_template,  .gitignore, .vimrc, .zshrc in root
+
+Copy .ctags in folder 
