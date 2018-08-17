@@ -55,7 +55,10 @@ Plug 'nightsense/carbonized'
 Plug 'nightsense/office'
 Plug 'nightsense/seagrey'
 Plug 'nightsense/vrunchbang'
+Plug 'rakr/vim-two-firewatch'
+Plug 'vim-airline/vim-airline'
 call plug#end()  " All of your Plugins must be added before the following line
+
 
 " ================ General Config ====================
 
@@ -63,14 +66,17 @@ call plug#end()  " All of your Plugins must be added before the following line
 " colorscheme neodark
 " colorscheme sialoquent
 " colorscheme hybrid
- colorscheme carbonized-dark
- let g:carbonized_dark_LineNr = 'off'
+" colorscheme carbonized-dark
+" let g:carbonized_dark_LineNr = 'off'
 " colorscheme office-dark
 " colorscheme seagrey-dark
 "  colorscheme vrunchbang-dark
 "  let g:vrunchbang_dark_LineNr = 'off'
 
-"set background=dark
+set background=dark " or light if you prefer the light version
+let g:two_firewatch_italics=1
+colo two-firewatch
+let g:airline_theme='twofirewatch' 
 highlight Normal ctermfg=grey ctermbg=black
 
 set termguicolors
@@ -158,8 +164,8 @@ nnoremap <silent> <Leader>[ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>] :exe "resize " . (winheight(0) * 2/3)<CR>
 
 "===============Tab Relocation Setting"===================
-noremap <C-X>  :-tabmove<cr>
-noremap <C-C> :+tabmove<cr>
+noremap <C-x>  :-tabmove<cr>
+noremap <C-c> :+tabmove<cr>
 " move current tab to left/right
 "noremap <Leader><Left>  :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 "noremap <Leader><Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
@@ -175,8 +181,15 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
+"copy to clipboard
+"noremap <C-q> "+y
+"noremap <C-w> "+p
 " ===== No highlight ===="
 noremap <C-H> :noh <CR>
+
+
+" ==== Defination In new Tab ==========
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 " ===== Seeing Is Believing =====
 " " Assumes you have a Ruby with SiB available in the PATH
@@ -321,4 +334,8 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<C-d>'
+
+
+"==== mouse movement up/down
+"set clipboard=unnamedplus
 
