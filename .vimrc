@@ -164,8 +164,8 @@ nnoremap <silent> <Leader>[ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>] :exe "resize " . (winheight(0) * 2/3)<CR>
 
 "===============Tab Relocation Setting"===================
-noremap <C-x>  :-tabmove<cr>
-noremap <C-c> :+tabmove<cr>
+noremap <C-X>  :-tabmove<cr>
+noremap <C-C> :+tabmove<cr>
 " move current tab to left/right
 "noremap <Leader><Left>  :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 "noremap <Leader><Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
@@ -184,12 +184,14 @@ noremap <leader>0 :tablast<cr>
 "copy to clipboard
 "noremap <C-q> "+y
 "noremap <C-w> "+p
+
 " ===== No highlight ===="
 noremap <C-H> :noh <CR>
 
 
 " ==== Defination In new Tab ==========
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+
 
 " ===== Seeing Is Believing =====
 " " Assumes you have a Ruby with SiB available in the PATH
