@@ -20,6 +20,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
   Plugin 'VundleVim/Vundle.vim'
   Plugin 'darthmall/vim-vue'
+  Plugin 'editorconfig/editorconfig-vim'
+  Plugin 'Quramy/vim-js-pretty-template'
 call vundle#end()
 filetype plugin indent on
 
@@ -57,6 +59,12 @@ Plug 'nightsense/seagrey'
 Plug 'nightsense/vrunchbang'
 Plug 'rakr/vim-two-firewatch'
 Plug 'vim-airline/vim-airline'
+Plug 'leafgarland/typescript-vim'       "For typescript
+Plug 'curist/vim-angular-template'
+Plug 'mhinz/vim-startify'
+Plug 'joshdick/onedark.vim'
+Plug 'burnettk/vim-angular' 
+Plug 'zxqfl/tabnine-vim'
 call plug#end()  " All of your Plugins must be added before the following line
 
 
@@ -78,6 +86,9 @@ let g:two_firewatch_italics=1
 colo two-firewatch
 let g:airline_theme='twofirewatch' 
 highlight Normal ctermfg=grey ctermbg=black
+
+syntax on
+"colorscheme onedark
 
 set termguicolors
 set number relativenumber              "Line numbers are good
@@ -235,11 +246,11 @@ nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 let g:spec_runner_dispatcher = "VtrSendCommand! {command}"
 
 " RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
+"map <Leader>t :call RunCurrentSpecFile()<CR>
+"map <Leader>s :call RunNearestSpec()<CR>
+"map <Leader>l :call RunLastSpec()<CR>
+"map <Leader>a :call RunAllSpecs()<CR>
+"
 nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
 
 " For ruby block selections
@@ -315,7 +326,8 @@ set wildignore+=tmp/**
 highlight StatusLine ctermfg=blue ctermbg=yellow
 
 " Format xml files
-au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+"au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+
 
 " Use ag for text search
 let g:ackprg = 'ag --vimgrep'
@@ -340,4 +352,26 @@ let g:multi_cursor_quit_key='<C-d>'
 
 "==== mouse movement up/down
 "set clipboard=unnamedplus
+
+"TABline Colors
+hi TabLineFill ctermfg=RED ctermbg=DarkGreen
+hi TabLine ctermfg=Blue ctermbg=Yellow
+hi TabLineSel ctermfg=Red ctermbg=Yellow
+hi Title ctermfg=LightBlue ctermbg=Magenta
+
+"
+"Sessions
+"Save Session
+nnoremap <silent><leader>ss :SSave
+
+"Load Session
+nnoremap <silent><leader>ls :SLoad
+
+
+
+
+
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
 
